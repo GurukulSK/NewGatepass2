@@ -1,0 +1,27 @@
+<div class="select" id="Select">
+  <label *ngIf="Label" for="">{{ label }} <font *ngIf="Mandetary" color="red">*</font></label>
+  <div class="box" *ngIf="!disabled && !input" (click)="options()">
+    {{ Value }}
+    <img id="{{ Ids }}arrow" class="arrow" src="/assets/icon/arrow-up.svg" alt="" />
+  </div>
+  <div class="box" *ngIf="!disabled && input" (click)="options()">
+    <input type="text" value="{{Value}}" (input)="inputBox($event)" >
+    <img id="{{ Ids }}arrow" class="arrow" src="/assets/icon/arrow-up.svg" alt="" />
+  </div>
+  <div class="box disable_color" *ngIf="disabled">
+    {{ Value }}
+    <img id="{{ Ids }}arrow" class="arrow" src="/assets/icon/arrow-up.svg" alt="" />
+  </div>
+  <p *ngIf="error" class="error">This filed is required</p>
+  <div class="option" id="{{ Ids }}">
+    <div class="serch">
+      <widget-normal-input (GetdataEvent)="SearchData($event)" [Label]="false" placeholder="Search here"
+        class="input"></widget-normal-input>
+    </div>  
+    <div class="data">
+      <span *ngFor="let i of DemoData" (click)="Select(i)">
+        <p *ngFor="let key of i | keyvalue">{{ key.value }}</p>
+      </span>
+    </div>
+  </div>
+</div>

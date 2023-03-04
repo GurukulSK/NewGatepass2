@@ -1,0 +1,85 @@
+@mixin inputClass{
+    display: flex;
+    align-items: center;
+    background-color: $secondaryColor;
+    margin: 20px 0px;
+    border-radius: 10px;
+    transition: 0.2s all;
+    border:2px solid $secondaryColor !important;
+    input{
+        background-color: $secondaryColor;
+        border:2px solid $secondaryColor;
+        padding: 7px;
+        width: 100%;
+        transition: 0.5s all;
+        font-size: 12px;
+        border-radius: 10px;
+        transition: 0.5s all;
+    }
+   
+    input:focus{
+        outline: none !important;
+
+    }
+    
+    img {
+        padding:0px 10px;
+        background-color: $secondaryColor;
+        width: 20px;
+        border-right: 1px solid $Primary_Color;
+    }
+    p{
+        background-color: $secondaryColor;
+        // padding-right: 10px;
+        font-size: 12px;
+        font-family: $open_sans_semi_bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        img{
+            border-right: none;
+        }
+    }
+
+}
+@mixin input{
+    .input{
+        background-color: $secondaryColor;
+        // width: 45%;
+        margin: 10px;
+        display: flex;
+        padding: 5px;
+        border-radius: 10px;
+        border: 2px solid $secondaryColor;
+        img{
+            background-color: $secondaryColor;
+            width: 20px;
+            padding-right: 5px;
+            // border-right: 1px solid $Primary_Color;
+        }
+        input{
+            border: 2px solid $secondaryColor;
+            background-color: $color_white;
+            background-color: $secondaryColor;
+            width: 100%;
+            font-size: 16px;
+            font-family: $open_sans_mediun;
+        }
+        input:focus{
+            outline: 0;
+        }
+        label{
+            margin-left: 10px;
+            font-family: $open_sans_regular;
+            background-color: $color_white;
+        }
+    }
+    .input:focus-within{
+        border : 2px solid $Primary_Color;
+    }
+    label{
+        margin-left: 10px;
+        font-family: $open_sans_regular
+    }
+}

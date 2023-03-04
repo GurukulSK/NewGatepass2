@@ -1,0 +1,95 @@
+<div class="bg">
+  <app-top-bar [login]="true"></app-top-bar>
+  <div class="main">
+    <div class="card">
+      <div class="logo">
+        <img src="/assets/logo.png" alt="" />
+      </div>
+      <div class="text bold_font">
+        <h2>Log in to Smart Gurukul</h2>
+      </div>
+      <div class="form">
+        <form>
+          <div class="input">
+            <img src="/assets/icon/user.svg" alt="" />
+            <input
+              type="text"
+              [(ngModel)]="loginInterface.username"
+              class="midium_font"
+              name="username"
+              placeholder="Username"
+            />
+          </div>
+          <div class="input">
+            <img src="/assets/icon/password.svg" alt="" />
+            <input
+              [(ngModel)]="loginInterface.password"
+              type="password"
+              name="password"
+              id="passwordFild"
+              class="midium_font"
+              placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
+            />
+            <p
+              id="Showtext"
+              *ngIf="!ShowPassword"
+              (click)="toggalepass()"
+              class="regular_font"
+            >
+              <img align="center" src="/assets/icon/show.svg" alt="" />
+            </p>
+            <p
+              id="Showtext"
+              *ngIf="ShowPassword"
+              (click)="toggalepass()"
+              class="regular_font"
+            >
+              <img align="center" src="/assets/icon/hide.svg" alt="" />
+            </p>
+          </div>
+          <div class="forgot">
+            <p class="regular_font">Forgot Password ?</p>
+          </div>
+          <div class="button">
+            <button id="loadder" class="load" (click)="login()" *ngIf="click">
+              <app-loadder></app-loadder>
+            </button>
+            <button class="" (click)="login()" *ngIf="!click">Login</button>
+          </div>
+        </form>
+      </div>
+      <div class="hr"></div>
+      <div class="links">
+        <!-- <h3>Quick Links</h3> -->
+        <div class="links_con">
+          <div class="icon_bg">
+            <div class="icon"></div>
+          </div>
+          <div class="name" routerLink="/gatepass">Gate Pass</div>
+        </div>
+        <div class="links_con">
+          <div class="icon_bg">
+            <div class="icon"></div>
+          </div>
+          <div class="name">Online Exam</div>
+        </div>
+        <div class="links_con">
+          <div class="icon_bg">
+            <div class="icon"></div>
+          </div>
+          <div class="name">View Result</div>
+        </div>
+        <div class="links_con">
+          <div class="icon_bg">
+            <div class="icon"></div>
+          </div>
+          <div class="name">Pay Fees</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wave">
+    <!-- <img src="/assets/icon/wave.svg" alt=""> -->
+  </div>
+</div>
+<app-tosts *ngIf="Tost" [type]="TostType" [text]="TostText"></app-tosts>

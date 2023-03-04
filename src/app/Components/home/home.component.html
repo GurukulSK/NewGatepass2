@@ -1,0 +1,16 @@
+<app-login *ngIf="login"></app-login>
+
+<app-top-bar *ngIf="!login"></app-top-bar>
+<!-- <app-gatepass></app-gatepass> -->
+
+<section *ngIf="!login" id="main">
+        <div id="home">
+                <div class="nav">
+                        <app-nav-top-bar (HideEvent)="hide($event)"></app-nav-top-bar>
+                        <app-nav-bar  *ngIf="HideOrNot"></app-nav-bar>
+                </div>
+                <div id="route">
+                        <router-outlet></router-outlet>
+                </div>
+        </div>
+</section>

@@ -1,0 +1,76 @@
+@import '../../../../utils/include';
+.dilog{
+  width: 400px;
+  height: 210px;
+  border-radius: 70px;
+}
+
+.title{
+
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  p{
+    margin: 0px;
+    font-size: 15px;
+    font-family: var(--open_sans_semi_bold);
+    padding: 7px;
+    margin-left: 10px;
+  }
+  img
+  {
+    margin-right: 10px;
+    width: 15px;
+    padding: 7px;
+  }
+  img:hover{
+    background-color: var(--border_color50);
+    border-radius: 1000px;
+  }
+}
+button{
+  margin-left: 10px;
+  background-color: var(--Primary_Color);
+  border-radius: 8px;
+  padding: 10px 15px ;
+  margin-left: 23px;
+}
+
+.mat-mdc-button{
+  color: var(--color_white) !important;
+  font-family: var(--open_sans_mediun);
+  letter-spacing: .1px;
+}
+#input{
+  display: flex;
+  background-color: var(--secondaryColor);
+  border-radius: 10px;
+  padding: 2px;
+  padding-left: 10px  ;
+  border: 2px solid var(--secondaryColor);
+
+  img{
+    width: 20px;
+  }  
+  input{
+    border: 2px solid var(--secondaryColor);
+    padding: 7px 10px;
+    background-color: var(--secondaryColor);
+    font-family: var(--open_sans_semi_bold);
+  }
+  input:focus{
+    outline: none;
+  }
+}
+#input:focus-within{
+  border: 2px solid var(--Primary_Color);
+}
+.hr{
+  margin: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(180, 180, 180);
+}
+input{
+  width: 100%;
+}

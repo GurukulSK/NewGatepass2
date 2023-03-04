@@ -1,0 +1,44 @@
+@import "../../../../utils/include";
+
+.input{
+    background-color: var(--secondaryColor);
+    // width: 45%;
+    // margin: 10px;
+    display: flex;
+    padding: 5px;
+    margin: 10px;
+    margin-top: 2px;
+    border-radius: 10px;
+    border: 2px solid var(--secondaryColor);
+    img{
+        background-color: var(--secondaryColor);
+        width: 16px;
+        padding-right: 5px;
+        // border-right: 1px solid var(--Primary_Color);
+    }
+    input{
+        border: 2px solid var(--secondaryColor);
+        background-color: var(--color_white);
+        background-color: var(--secondaryColor);
+        width: 100%;
+        font-size: 13px;
+        font-family: var(--input_box_font);
+    }
+    #loader{
+      padding-right:10px;
+      margin-bottom: 4px;
+      height: 0px;
+    }
+    input:focus{
+        outline: 0;
+    }
+
+}
+.input:focus-within{
+    border : 2px solid var(--Primary_Color);
+}
+label{
+    font-size: 12px;
+    margin-left: 12px;
+    font-family: var(--input_box_font);
+}

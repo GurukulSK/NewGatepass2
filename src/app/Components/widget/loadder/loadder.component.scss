@@ -1,0 +1,98 @@
+@import "../../../../utils/include";
+@mixin anime {
+    animation-name: my-animation;
+    animation-duration: .4s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    width: 4px;
+    height: 0px;
+    border-radius: 10px;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+
+
+    .con {
+      display: flex;
+      width: 15px;
+
+    #l1 {
+        @include anime();
+    }
+    #l2 {
+        @include anime();
+        animation-delay: 100ms
+    }
+    #l3 {
+        @include anime();
+        animation-delay: 200ms
+    }
+}
+    .maincolor {
+        display: flex;
+    width: 15px;
+    position: relative;
+    top: -3px;
+    #l1 {
+        @include anime();
+    animation-name: my-mainanime;
+
+    }
+    #l2 {
+        @include anime();
+        animation-delay: 100ms;
+    animation-name: my-mainanime;
+
+    }
+    #l3 {
+        @include anime();
+        animation-delay: 200ms;
+    animation-name: my-mainanime;
+
+    }
+}
+
+
+@keyframes my-animation {
+    from {
+        background-color: #ffffff;
+        height: 20px;
+        top: 5px;
+    }
+    to {
+        background-color: #ffffff;
+        height: 2.5px;
+        top: 12px;
+    }
+}
+@keyframes my-mainanime {
+    from {
+        background-color: var(--Primary_Color);
+        height: 20px;
+        top: 5px;
+    }
+    to {
+        background-color: var(--Primary_Color);
+        height: 2.5px;
+        top: 12px;
+    }
+}
+
+// @keyframes my-center {
+//     from {
+//         background-color: #33475b;
+//         height: 2.5px;
+//         top: 12px;
+//     }
+//     to {
+//         background-color: #ff7a59;
+//         height: 20px;
+//         top: 5px;
+//     }
+// }

@@ -1,0 +1,97 @@
+<section id="main-section">
+<ng-lottie *ngIf="FingerAnime" id="Lottie-anime" [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+<ng-lottie *ngIf="submitAnime" id="Lottie-anime" [options]="success_lottie" (animationCreated)="animationCreated($event)"></ng-lottie>
+  <div class="container">
+    <div class="title" id="maintitle">
+      <p>Student Details</p>
+      <img src="/assets/icon/Finger_icon.svg" (click)="getpunch()">
+    </div>
+    <div class="top">
+      <!-- GId Input box -->
+      <widget-icon-input  [loadder]="gidloader" type="number" [gid]="true" label="GID" [defaule]="student[0].gid" placeholder="00000"
+      (GetdataEvent)="gidd($event)" class="input"></widget-icon-input>
+      <div class="input entry">
+          <!-- <label for="">Entry Type</label> -->
+        <div class="entrytype">
+        <button class="EntryButton active" id="r" (click)="EntryChek('r')">Regular</button>
+        <button class="EntryButton" (click)="EntryChek('s')">Special</button>
+      </div>
+      </div>
+    </div>
+    <!-- Main Form Startted -->
+    <form id="Forms" *ngIf="Entry != '' ">
+      <!-- Commaen Details Inputs -->
+      <widget-normal-input [error]="error" [bold]="true" label="First Name" [defaule]="student[0].name" [disable]="true"
+        placeholder="" class="input"></widget-normal-input>
+      <widget-normal-input label="Last Name" [bold]="true" [defaule]="student[0].surname" [disable]="true" placeholder=""
+        class="input"></widget-normal-input>
+      <widget-normal-input label="Standard" [defaule]="student[0].std" [disable]="true" placeholder=""
+        class="input"></widget-normal-input>
+      <widget-normal-input label="Room Number" [defaule]="student[0].room" [disable]="true" placeholder=""
+        class="input"></widget-normal-input>
+      <!-- Comman details input box end -->
+      <!-- Gatepass Entry Form Started -->
+      <div class="title" *ngIf="Entry == 'true'">
+        <p>Gatepass Details</p>
+      </div>
+      <div class="filds" *ngIf="Entry == 'true'">
+        <widget-select-box class="input" Ids="select1"  [error]="errors.place_error" [Value]="entryModel.place"
+          (SelectesValue)="entryModel.place = $event" label="Place Name" [data]="place_list"></widget-select-box>
+        <widget-select-box class="input" Ids="select2" [error]="errors.area_error" [Value]="entryModel.area"
+          (SelectesValue)="entryModel.area = $event"  label="Area Name" [data]="area_list"></widget-select-box>
+        <widget-select-box class="input" Ids="select3" [error]="errors.reason_error" [Value]="entryModel.reason"
+          (SelectesValue)="entryModel.reason = $event" label="Reason Type" [data]="reason_list"></widget-select-box>
+        <widget-select-box class="input" Ids="select4"  [error]="errors.permission_error" [Value]="entryModel.permission"
+          (SelectesValue)="entryModel.permission = $event" label="Authorize Person" [data]="authpersion"></widget-select-box>
+        <widget-normal-input label="Current Time" [defaule]="Curtime" [disable]="true" type="text"
+          placeholder="Current Time" class="input"></widget-normal-input>
+        <!-- custun tyme taking box -->
+        <div class="time">
+          <div class="label">
+            <label for="">Return Time<font color="red">*</font></label>
+          </div>
+          <input type="number" min="00" max="12" onkeypress="if(this.value == 2) return false;" name="hh" [(ngModel)]="entryModel.return_time_hh" (input)="jump($event)"
+            placeholder="HH" />
+          :
+          <input onkeypress="if(this.value.length == 2) return false;" name="mm" [(ngModel)]="entryModel.return_time_mm" type="number" placeholder="MM"
+            (input)="jump($event)" />
+          <input (click)="changetext()" type="button" id="am_pm" name="am_pm" [(ngModel)]="entryModel.return_time_am_pm"   />
+          <div class="error" *ngIf="errors.return_time_error">
+            <p>This filds is required</p>
+          </div>
+        </div>
+        <widget-select-box class="input" Ids="with" [disabled]="false" [error]="errors.with_error" [Value]="entryModel.with" (SelectesValue)="withChangeSelect($event)"
+          label="{{ student[0].name }} {{ student[0].surname }} with" [data]="with">
+        </widget-select-box>
+        <widget-normal-input label="Reletive Name" *ngIf="withbool" [error]="errors.with_name_error" placeholder="Reletive Name"
+          (GetdataEvent)="entryModel.with_name = $event" class="input"></widget-normal-input>
+        <widget-normal-input label="Reletive Number" *ngIf="withbool" [error]="errors.with_number_error" [number]="true" placeholder="Reletive Number" type="number"
+          (GetdataEvent)="entryModel.with_number = $event" class="input"></widget-normal-input>
+      </div>
+      <div class="title button_last"  *ngIf="Entry == 'true'">
+        <widget-button [loader]="loader_button" (click)="entry()" class="input" style="margin-right: 10px;"></widget-button>
+        <widget-button [loader]="loader_button" (click) = "cancle()" text="Cancel" class="input" style="margin-left: 10px;"></widget-button>
+      </div>
+      <div class="title" *ngIf="Entry == 'false'">
+        <p>Return Details</p>
+      </div>
+      <div class="filds" *ngIf="Entry == 'false'">
+        <widget-normal-input label="Going Time" type="text" [defaule]="g_time" [disable]="true" placeholder="Going Time"
+          class="input"></widget-normal-input>
+        <widget-normal-input label="Commited Time" type="text" [defaule]="commited_time" [disable]="true"
+          placeholder="Your Time" class="input"></widget-normal-input>
+        <widget-normal-input label="Current Time" type="text" [defaule]="Curtime" [disable]="true"
+          placeholder="Comming Time" class="input"></widget-normal-input>
+        <widget-select-box Ids="late Select Box" class="input" *ngIf="late" [error]="late_select_error" label="Authorized Person"
+          [Value]="late_permission" (SelectesValue)="late_permission = $event" [data]="ReturnAuthpersion"></widget-select-box>
+        <widget-normal-input label="Late Reason" type="text" *ngIf="late" [error]="late_reasone_error" [defaule]="late_reasone" [disable]="false"
+          (GetdataEvent)="late_reasone = $event" placeholder="Late Reason" class="input"
+          [Mandetary]="true"></widget-normal-input>
+      </div>
+      <div class="title" *ngIf="Entry == 'false'">
+        <widget-button class="input" [loader]="loader_button" (click)="return()"></widget-button>
+      </div>
+      <!-- Return Entry form end -->
+    </form>
+  </div>
+</section>

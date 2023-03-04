@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url(../assets/fonts/openSans/static/OpenSans/OpenSans-Bold.ttf);
+}
+@font-face {
+    font-family: 'Open Sans Semi Bold';
+    src: url(../assets/fonts/openSans/static/OpenSans/OpenSans-SemiBold.ttf);
+}
+@font-face {
+    font-family: 'Open Sans Regular';
+    src: url(../assets/fonts/openSans/static/OpenSans/OpenSans-Regular.ttf);
+}
+@font-face {
+    font-family: 'Open Sans Medium';
+    src: url(../assets/fonts/openSans/static/OpenSans/OpenSans-Medium.ttf);
+}
+
+$open_sans_bold : "Open Sans Bold";
+$open_sans_semi_bold : "Open Sans Semi Bold";
+$open_sans_regular : "Open Sans Regular";
+$open_sans_mediun : "Open Sans Medium";
+
+$input_box_font :$open_sans_semi_bold;
+$input_lebel :$open_sans_regular;
+$title_font : $open_sans_bold;
+

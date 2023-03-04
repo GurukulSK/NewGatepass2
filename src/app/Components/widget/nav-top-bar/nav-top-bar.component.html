@@ -1,0 +1,72 @@
+<div class="top">
+  <div class="title">
+    <img
+      src="/assets/icon/{{ icon }}.svg"
+      alt=""
+      (click)="Hide()"
+      width="30px"
+    />
+    <p class="text">{{ title }}</p>
+  </div>
+  <div id="colors">
+    <div id="redColor" class="theam" (click)="redTheam()">
+      <button id="red"></button>
+    </div>
+    <div id="BlueColor" class="theam" (click)="blueTheam()">
+      <button id="blue"></button>
+    </div>
+    <div id="greenColor" class="theam" (click)="greenTheam()">
+      <button id="green"></button>
+    </div>
+    <div id="orangeColor" class="theam" (click)="orangeTheam()">
+      <button id="orange"></button>
+    </div>
+    <div id="pinkColor" class="theam" (click)="pinkTheam()">
+      <button id="pink"> </button>
+    </div>
+    <div id="BlackColor" class="theam" (click)="blackTheam()">
+      <button id="Black"> </button>
+    </div>
+
+
+
+
+    <div id="OrangeColor" class="theam" (click)="OrangeTheam()">
+      <button id="Orange"> </button>
+    </div>
+    <div id="PurpalColor" class="theam" (click)="PurpalTheam()">
+      <button id="Purpal"> </button>
+    </div>
+    <div id="BrownColor" class="theam" (click)="BrownTheam()">
+      <button id="Brown"> </button>
+    </div>
+    <div id="LightPurpalColor" class="theam" (click)="LightPurpalTheam()">
+      <button id="LightPurpal"></button>
+    </div>
+    <div id="DarkPurpalColor" class="theam" (click)="DarkPurpalTheam()">
+      <button id="DarkPurpal"> </button>
+    </div>
+    
+
+  </div>
+  <div class="errors" *ngIf="error != ''">
+    <div class="err error" *ngIf="danger">
+      <img src="/assets/icon/error.svg" alt="" srcset="" />
+      <p>
+        {{error}}
+      </p>
+    </div>
+    <div class="err warning" *ngIf="warning">
+      <img src="/assets/icon/warning.svg" alt="" srcset="" />
+      <p>
+        {{error}}
+      </p>
+    </div>
+    <div class="err success" *ngIf="success">
+      <img src="/assets/icon/success.svg" alt="" srcset="" />
+      <p>
+        {{error}}
+      </p>
+    </div>
+  </div>
+</div>

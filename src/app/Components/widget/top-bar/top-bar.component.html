@@ -1,0 +1,41 @@
+<div *ngIf="login" class="nav">
+  <div>
+    <div class="logo">
+      <div class="logo_img">
+        <!-- <img src="/assets/logo.svg" alt="" /> -->
+        <img src="/assets/logo.png" alt="">
+      </div>
+      <p>Memnagar&nbsp;Gurukul</p>
+    </div>
+    <marquee scrollAmount="2" class="bold_font">Shree Swaminarayan Gurukul Memnagar Ahmedabad | Shree Jogiswami
+      Chhatralay | Shree Swaminarayan Gurukul Vidhyalay</marquee>
+  </div>
+</div>
+<div *ngIf="!login" class="nav">
+  <div class="main">
+    <div id="left" class="logo" style="margin-left: 0px;">
+      <div class="logo_img">
+        <img src="/assets/logo.png" alt="">
+
+      </div>
+      <p>Memnagar&nbsp;Gurukul</p>
+    </div>
+    <marquee scrollAmount="2" class="bold_font">Shree Swaminarayan Gurukul Memnagar Ahmedabad | Shree Jogiswami
+      Chhatralay | Shree Swaminarayan Gurukul Vidhyalay</marquee>
+
+    <div id="right">
+      <p>
+        <img id="bellImg" (click)="refresh()"src="/assets/icon/refresh.svg" alt="" />
+      </p>
+      <div class="hr"></div>
+      <p>
+        <img id="bellImg" src="/assets/icon/bell.svg" alt="" />
+      </p>
+      <div class="hr"></div>
+      <p>
+        <img src="/assets/icon/user.svg" alt="" />
+      </p>
+    </div>
+  </div>
+
+</div>

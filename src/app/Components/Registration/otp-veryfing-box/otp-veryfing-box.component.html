@@ -1,0 +1,23 @@
+<div class="dilog">
+  <div class="title">
+    <p>Hi !! {{ data.name }}</p>
+    <img (click)="onNoClick()" src="/assets/icon/close.svg" alt="" />
+  </div>
+  <div class="hr"></div>
+  <div mat-dialog-content>
+    <!-- <mat-form-field style="width: 100%" appearance="outline">
+      <mat-label>Enter Otp Here</mat-label>
+      <input matInput [(ngModel)]="data.otp" type="number" placeholder="OTP" />
+      <mat-hint *ngIf="err" style="color: red">Enter Valid Otp</mat-hint>
+    </mat-form-field> -->
+    <!-- <widget-normal-input placeholder="Enter Otp" [Label]="false" class="input"></widget-normal-input> -->
+    <!-- <widget-icon-input icon="/assets/icon/otp.svg" [Label]="false" placeholder="Enter otp"></widget-icon-input> -->
+    <div id="input">
+      <img src="/assets/icon/otp.svg" alt="">
+      <input type="number" [(ngModel)]="data.otp" name="otp" onkeypress="if(this.value.length == 6) return false;" placeholder="Enter otp">
+    </div>
+  </div>
+  <div>
+    <button mat-button (click)="chek()" >Submit</button>
+  </div>
+</div>

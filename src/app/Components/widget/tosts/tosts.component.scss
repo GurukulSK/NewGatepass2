@@ -1,0 +1,34 @@
+@import "../../../../utils/include";
+
+.tost{
+    position: absolute;
+    bottom: 2%;
+    right: 1%;
+    // background-color: $tost_green;
+    padding: 20px;
+    border-radius: 10px;
+    animation-name: "slide";
+    animation-duration: 4s;
+    animation: anime 5s ;
+    opacity: 1;
+}
+.success{
+    background-color: $tost_green !important;
+}
+.warning{
+    background-color: $tost_yellow !important;
+}
+.danger{
+    background-color: $tost_red !important;
+}
+@keyframes anime {
+    0%{
+        opacity: 0;
+    }
+    15%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}

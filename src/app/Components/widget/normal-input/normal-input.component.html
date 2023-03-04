@@ -1,0 +1,9 @@
+<div id="Input">
+  <label *ngIf="Label" for="">{{ label }} <font *ngIf="Mandetary" color="red">*</font></label>
+  <div class="input" [ngClass]="{ disable_color: disable }">
+    <input *ngIf="disable && !number"  class="disable_color" [ngClass]="{'bold':bold}" (input)="getdata()" [(ngModel)]="defaule" type="{{ type }}" disabled placeholder="{{ placeholder }}" />
+    <input *ngIf="!disable && !number" (input)="getdata()" [ngClass]="{'bold':bold}" [(ngModel)]="defaule" type="{{ type }}" placeholder="{{ placeholder }}" />
+    <input *ngIf="number && !disable" (input)="getdata()" [ngClass]="{'bold':bold}" onkeypress="if(this.value.length == 10) return false;" [(ngModel)]="defaule" type="{{ type }}" placeholder="{{ placeholder }}" />
+  </div>
+  <p *ngIf="error" class="error">This filed is required</p>
+</div>

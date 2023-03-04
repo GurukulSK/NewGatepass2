@@ -1,0 +1,47 @@
+<div class="main">
+    <div class="bottom">
+        <div class="left" *ngIf="home">
+            <font>MODULES</font>
+            <div class="modules">
+                <div class="module">
+                    <img src="/assets/icon/user.svg" alt="">
+                    <p class="m_title">Home</p>
+                </div>
+                <div class="module">
+                    <img src="/assets/icon/user.svg" alt="">
+                    <p class="m_title">Chhatralaya</p>
+                </div>
+                <div class="module">
+                    <img src="/assets/icon/user.svg" alt="">
+                    <p class="m_title">School</p>
+                </div>
+                <div class="module">
+                    <img src="/assets/icon/user.svg" alt="">
+                    <p class="m_title">Banking</p>
+                </div>
+                <div class="module" (click)="routechange('registration')">
+                    <img src="/assets/icon/user.svg" alt="">
+                    <p class="m_title">Registration</p>
+                </div>
+            </div>
+        </div>
+        <div class="left" *ngIf="gatepass">
+            <div class="image">
+                <img src="/assets/icon/placeholder.jpg" *ngIf="url == ''" alt="">
+                <img src="{{url}}" *ngIf="url != ''" alt="">
+            </div>
+            <font>MODULES</font>
+            <div class="modules">
+              <div class="module" id="gatepass" (click)="routechange('registration')">
+                  <img src="/assets/icon/user.svg" alt="">
+                  <p class="m_title">Individual Gatepass</p>
+              </div>
+                <div class="module" id="groupgatepass" (click)="routechange('registration/Group-Gatepass')">
+                    <img src="/assets/icon/user.svg" alt="">
+                    <p class="m_title">Group Gatepass</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
