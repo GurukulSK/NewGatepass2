@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GroupEntry } from 'src/app/Model/GroupEntry';
+import { NodeService } from '../services/node.service';
 
 @Component({
   selector: 'app-sabha',
@@ -6,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./sabha.component.scss'],
 })
 export class SabhaComponent {
+
+gidloader: boolean = false;
+  loader_button: boolean = false;
 removeList(_t17: number) {
 throw new Error('Method not implemented.');
 }
@@ -66,5 +71,17 @@ throw new Error('Method not implemented.');
       seva: 'Dharmik Store',
     },
   ];
-grouplist: any;
+  GroupList = new GroupEntry()
+  grouplist=[this.GroupList];
+  constructor(private nodeservice:NodeService){}
+    gidd(gid: any) {
+      if(gid.length == 5){
+        let student = new GroupEntry();
+        student.gid=20018
+        student.name="20018"
+        student.suname="20018"
+        student.std="20018"
+        this.grouplist.push(student)
+      }
+  }
 }

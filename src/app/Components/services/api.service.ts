@@ -13,13 +13,14 @@ export class ApiService {
   // NodeApi = 'http://10.10.10.190:300';
   constructor(private http: HttpClient) {}
 
+  
+
   Getpunch() {
     return this.http.get(this.NodeApi + '/getpunch').pipe(timeout(9900));
   }
   ReturnMessage(body: any) {
     return this.http.post(this.NodeApi + '/delmes', body);
   }
-
   GetStudentDataForGatepass(gid: number) {
     return this.http.get(this.ApiUrl + '/Student/' + gid + '');
   }
@@ -56,4 +57,7 @@ export class ApiService {
   Sendmessage(body: Object) {
     return this.http.post(this.NodeApi + '/sendTelegram', body);
   }
+
+  
+  
 }

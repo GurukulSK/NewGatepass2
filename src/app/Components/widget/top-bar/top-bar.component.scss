@@ -15,9 +15,9 @@
     align-items: center;
   }
   .logo{
-    p{
+    h3{
       margin-left: 5px;
-      font-family: var(--open_sans_bold);
+      font-family: var(--open_sans_bold) !important;
       // font-family: Arial, Helvetica, sans-serif;
       font-size: 25px;
       margin-right: 10px;

@@ -3,7 +3,8 @@
     <div class="input">
         <img src="{{icon}}" alt="">
         <input type="{{type}}" [(ngModel)]="defaule" *ngIf="!gid" (change)="getdata()" (input)="getdata()" [(ngModel)]="value" name="{{name}}"  placeholder="{{placeholder}}">
-        <input type="{{type}}"  [(ngModel)]="defaule" *ngIf="gid" disabled (change)="getdata()" onkeypress="if(this.value.length == 5) return false;" (input)="getdata()" [(ngModel)]="value" name="{{name}}" style="cursor:not-allowed;"  placeholder="{{placeholder}}">
+        <input  type="{{type}}"  [(ngModel)]="defaule" *ngIf="gid && disable"  disabled (change)="getdata()" onkeypress="if(this.value.length == 5) return false;" (input)="getdata()" [(ngModel)]="value" name="{{name}}" style="cursor:not-allowed;"  placeholder="{{placeholder}}">
+        <input  type="{{type}}"  [(ngModel)]="defaule" *ngIf="gid && !disable"  (change)="getdata()" onkeypress="if(this.value.length == 5) return false;" (input)="getdata()" [(ngModel)]="value" name="{{name}}"  placeholder="{{placeholder}}">
         <app-loadder id="loader"  [maincolor]="true" *ngIf="loadder"></app-loadder>
     </div>
 </div>

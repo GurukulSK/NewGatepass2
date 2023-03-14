@@ -1,9 +1,16 @@
 <section id="main-section">
 
 <div class="container">
+  <div class="top">
 
-  <widget-select-box class="input" Ids="select4" [disabled]="false" [error]="false" [Value]="seva"
-  (SelectesValue)="seva = $event" label="Seva Deparment" [data]="SevaName"></widget-select-box>
+    <widget-icon-input  [disable]="false" [loadder]="gidloader" type="number" [gid]="true" label="GID" [defaule]="" placeholder="00000"
+    (GetdataEvent)="gidd($event)" class="item"></widget-icon-input>
+
+    <widget-select-box class="item" Ids="select4" [disabled]="false" [error]="false" [Value]="seva"
+    (SelectesValue)="seva = $event" label="Seva Deparment" [data]="SevaName"></widget-select-box>
+
+  </div>
+  
   <div id="list">
     <table>
       <tr class="table-header">
