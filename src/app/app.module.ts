@@ -28,6 +28,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { SabhaComponent } from './Components/sabha/sabha.component';
 export function playerFactory() {
   return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
 }
@@ -50,6 +51,7 @@ export function playerFactory() {
     GroupGatepassComponent,
     NumberFormatPipe,
     OtpVeryfingBoxComponent,
+    SabhaComponent,
   ],
   imports: [
     LottieModule.forRoot({ player: playerFactory }),

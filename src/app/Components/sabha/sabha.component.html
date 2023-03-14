@@ -1,0 +1,32 @@
+<section id="main-section">
+
+<div class="container">
+
+  <widget-select-box class="input" Ids="select4" [disabled]="false" [error]="false" [Value]="seva"
+  (SelectesValue)="seva = $event" label="Seva Deparment" [data]="SevaName"></widget-select-box>
+  <div id="list">
+    <table>
+      <tr class="table-header">
+        <th>#</th>
+        <th>GID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Standard</th>
+        <th class="action">Action</th>
+      </tr>
+      <tr *ngFor="let obj of grouplist;let i =index">
+        <td style="margin-left: 5px;">{{i+1 | numberFormat}}</td>
+        <td>{{obj.gid}}</td>
+        <td>{{obj.name}}</td>
+        <td>{{obj.suname}}</td>
+        <td>{{obj.std}}</td>
+        <td class="action"><svg (click)="removeList(i)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+            class="icon">
+            <path
+              d="M195.2 195.2a64 64 0 0190.496 0L512 421.504 738.304 195.2a64 64 0 0190.496 90.496L602.496 512 828.8 738.304a64 64 0 01-90.496 90.496L512 602.496 285.696 828.8a64 64 0 01-90.496-90.496L421.504 512 195.2 285.696a64 64 0 010-90.496z" />
+          </svg></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</section>

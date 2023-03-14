@@ -340,6 +340,9 @@ export class GatepassComponent implements OnInit {
               if (DateReturn! > now_date!) {
                 this.TooLateReturn = true
               }
+              else{
+                this.TooLateReturn=false
+              }
             });
             this.height = '430px';
           }
@@ -756,13 +759,15 @@ export class GatepassComponent implements OnInit {
         this.late_select_error = true;
         this.late_reasone_error = false;
         return
-      } else {
+      }
+      else {
         if (this.late_reasone == '' || this.late_reasone == undefined) {
           this.nodeservice.error_set('Reason for Late is Required', 'warning');
           this.late_select_error = false;
           this.late_reasone_error = true;
           return
-        } else {
+        }
+        else {
           body = {
             gid: this.student[0].gid,
             late_permission: this.late_permission,
@@ -770,13 +775,14 @@ export class GatepassComponent implements OnInit {
           };
         }
       }
-    } else {
+    }
+    else {
       body = {
         gid: this.student[0].gid,
       };
     }
     let id;
-    console.log(body);
+    // console.log(body);
     if (this.TooLateReturn) {
 
       this.api.GanaretOtp(this.student[0].gid).subscribe((data: any) => {

@@ -42,10 +42,18 @@ export class NavBarComponent {
     this.router.navigateByUrl(url);
     if(url == "registration"){
       (document.getElementById('groupgatepass') as HTMLElement).classList.remove("active");
+      (document.getElementById('sabha') as HTMLElement).classList.remove("active");
       (document.getElementById('gatepass') as HTMLElement).classList.add("active");
-    }if(url == "registration/Group-Gatepass"){
+    }
+    if(url == "registration/Group-Gatepass"){
+      (document.getElementById('sabha') as HTMLElement).classList.remove("active");
       (document.getElementById('gatepass') as HTMLElement).classList.remove('active');
       (document.getElementById('groupgatepass') as HTMLElement).classList.add('active');
+    }
+    if(url == "registration/sabha"){
+      (document.getElementById('gatepass') as HTMLElement).classList.remove('active');
+      (document.getElementById('sabha') as HTMLElement).classList.add("active");
+      (document.getElementById('groupgatepass') as HTMLElement).classList.remove('active');
     }
   }
 }

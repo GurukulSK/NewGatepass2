@@ -4,6 +4,7 @@ import { GatepassComponent } from './Components/Registration/gatepass/gatepass.c
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { GroupGatepassComponent } from './Components/Registration/group-gatepass/group-gatepass.component';
+import { SabhaComponent } from './Components/sabha/sabha.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path:"Group-Gatepass",
         component:GroupGatepassComponent
+      },
+      {
+        path:"sabha",
+        component:SabhaComponent
       }
     ]
   },

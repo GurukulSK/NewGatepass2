@@ -7,11 +7,9 @@ import { GroupEntry } from 'src/app/Model/GroupEntry';
 import { GatepassEntry } from 'src/app/Model/GatepassEntryModel';
 import { OtpVeryfingBoxComponent } from '../otp-veryfing-box/otp-veryfing-box.component';
 import { MatDialog } from '@angular/material/dialog';
-import { group } from '@angular/animations';
 import { Router } from '@angular/router';
 import { AnimationOptions } from 'ngx-lottie';
 import { AnimationItem } from 'ngx-lottie/lib/symbols';
-import { timeout } from 'rxjs/operators';
 export class errors {
   area_error = false;
   place_error = false;
@@ -519,7 +517,7 @@ export class GroupGatepassComponent implements OnDestroy {
                   let message = {
                     gid : stu.gid,
                     mes : `${stu.name}  ${stu.suname}\nGID - ${stu.gid}\nStd. - ${stu.std}\n\nGoing to  - ${em.place}\nArea - ${em.area}\nReason - ${em.reason}\n\nDate - ${NewDate}\nTime - ${this.Curtime}\nExpected Return Time - ${ReturnTime}\n\nWith - ${em.with}\nWith Name - ${em.with_name}\nWith Number - ${em.with_number}\n\nPermission - ${em.permission}\n\nStudents : \n${students}`
-                    
+
                   }
                   this.api.Sendmessage(message).subscribe((data) => {
                   });
@@ -528,7 +526,7 @@ export class GroupGatepassComponent implements OnDestroy {
                   let message = {
                     gid : stu.gid,
                     mes : `${stu.name}  ${stu.suname}\nGID - ${stu.gid}\nStd. - ${stu.std}\n\nGoing to  - ${em.place}\nArea - ${em.area}\nReason - ${em.reason}\n\nDate - ${NewDate}\nTime - ${this.Curtime}\nExpected Return Time - ${ReturnTime}\n\nPermission - ${em.permission}\n\nStudents : \n${students}`
-                    
+
                   }
                   this.api.Sendmessage(message).subscribe((data) => {
                   });

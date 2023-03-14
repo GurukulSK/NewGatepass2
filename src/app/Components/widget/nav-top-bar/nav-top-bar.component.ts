@@ -92,6 +92,9 @@ export class NavTopBarComponent {
         if (event.url == '/registration/Group-Gatepass') {
           this.title = 'Group Gatepass';
         }
+        if (event.url == '/registration/sabha') {
+          this.title = 'Sabha';
+        }
       }
     });
   }
