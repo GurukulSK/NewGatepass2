@@ -13,7 +13,7 @@ export class ApiService {
   // NodeApi = 'http://10.10.10.190:300';
   constructor(private http: HttpClient) {}
 
-  
+
 
   Getpunch() {
     return this.http.get(this.NodeApi + '/getpunch').pipe(timeout(9900));
@@ -57,7 +57,16 @@ export class ApiService {
   Sendmessage(body: Object) {
     return this.http.post(this.NodeApi + '/sendTelegram', body);
   }
+  Sabha = "http://10.0.2.13:8080/api/sabha/"
+  GetStudent(gid:number){
+    return this.http.post(this.Sabha + "getdatabyid" , {gid:gid})
+  }
+  SabhaStatus(gid:number){
+    return this.http.post(this.Sabha + "chekstatus" , {gid:gid})
+  }
+  SabhaEntry(body:any){
 
-  
-  
+    return this.http.post(this.Sabha + "storedata" , body)
+  }
+
 }

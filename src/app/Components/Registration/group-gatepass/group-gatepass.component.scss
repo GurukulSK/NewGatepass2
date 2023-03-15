@@ -31,26 +31,30 @@
   border: 1px solid var(--border_color50);
   box-shadow: 0px 0px 2px var(--shadow_color);
   border-radius: 8px;
-  #Lottie-anime{
+
+  #Lottie-anime {
     position: absolute;
     left: 45%;
     top: 30%;
     width: 200px;
     padding: 10px;
-    border:.5px solid var(--border_color50);
+    border: .5px solid var(--border_color50);
     box-shadow: 0px 0px 10px var(--shadow_color);
     border-radius: 15px;
     z-index: 999;
   }
+
   .container {
     border-radius: 8px;
     box-shadow: 0px 0px 2px var(--shadow_color);
     padding: 15px;
-    #maintitle{
+
+    #maintitle {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      IMG{
+
+      IMG {
         width: 27px;
         margin-right: 27px;
         cursor: pointer;
@@ -60,20 +64,24 @@
       }
 
     }
+
     #list {
       width: 100%;
       margin-left: 10px;
       margin-right: 10px;
-      table{
+
+      table {
         width: 100%;
         border-spacing: 0px;
         border-collapse: collapse;
-        border-radius: 10px ;
-        .table-header{
+        border-radius: 10px;
+
+        .table-header {
           position: sticky;
           top: 0px;
           background-color: #fff;
-          th{
+
+          th {
             margin: 0px;
             margin-bottom: 5px;
             margin-top: 5px;
@@ -82,30 +90,44 @@
             font-size: 15px;
           }
         }
-        tr{
+
+        tr {
           // background-color: var(--secondaryColor);
           text-align: left;
           border: 2px solid #fff;
-          td{
+
+          td {
             font-size: 12px;
             font-family: var(--open_sans_mediun);
-            svg{
+
+            svg {
               width: 15px;
               padding: 5px;
               border-radius: 5px;
               fill: red;
             }
-            svg:hover{
+
+            svg:hover {
               cursor: pointer;
               background-color: #ffe6ee;
             }
           }
-          td:first-child { border-top-left-radius: 10px;border-bottom-left-radius: 10px; }
-          td:last-child { border-top-right-radius: 10px;border-bottom-right-radius: 10px; }
-          .action{
+
+          td:first-child {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+          }
+
+          td:last-child {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+
+          .action {
             text-align: center;
           }
         }
+
         // tr:nth-child(odd){
         //   background-color: var(--secondaryColor;
         // }
@@ -119,6 +141,7 @@
         // }
       }
     }
+
     form {
       width: 100%;
       height: 0px;
@@ -137,6 +160,7 @@
         margin-left: 5px;
         // margin-left: 10px;
       }
+
       .input {
         width: 50%;
         background-color: var(--color_white);
@@ -203,6 +227,7 @@
   cursor: pointer;
   margin-left: 4px;
 }
+
 .top {
   display: flex;
   width: 100%;
@@ -214,43 +239,49 @@
     width: 50% !important;
     background-color: var(--color_white);
   }
-.entry{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  label{
-    font-size: 12px;
-    margin-left: 12px;
-    font-family: var(--input_box_font)
-  }
-  .entrytype {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    button{
-      width: 47%;
-      background-color: var(--secondaryColor);
-      padding: 8px;
-      color: var(--color_white);
-      font-size: 13px;
-      border-radius: 10px;
-      border: none;
-      margin-top: 12px;
-      color: var(--font_color);
-      font-family: var(--open_sans_mediun);
-      transition: .5s all;
-      border: 2px solid var(--Primary_Color);
-    }
-    button:hover{
-      background-color: var(--Primary_Color_hover);
-      color: var(--color_white);
-      cursor: pointer;
 
+  .entry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    label {
+      font-size: 12px;
+      margin-left: 12px;
+      font-family: var(--input_box_font)
     }
-    .active{
-      background-color: var(--Primary_Color);
-      color: var(--color_white);
-    }
+
+    .entrytype {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      button {
+        width: 47%;
+        background-color: var(--secondaryColor);
+        padding: 8px;
+        color: var(--color_white);
+        font-size: 13px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 12px;
+        color: var(--font_color);
+        font-family: var(--open_sans_mediun);
+        transition: .5s all;
+        border: 2px solid var(--Primary_Color);
+      }
+
+      button:hover {
+        background-color: var(--Primary_Color_hover);
+        color: var(--color_white);
+        cursor: pointer;
+
+      }
+
+      .active {
+        background-color: var(--Primary_Color);
+        color: var(--color_white);
+      }
     }
   }
 

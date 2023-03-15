@@ -16,10 +16,10 @@ export class IcpnInputComponent {
   @Input() name  = "gid"
   @Input() gid  = false
   @Input() loadder  = false
-  @Input() Label :boolean  = true; 
+  @Input() Label :boolean  = true;
   value:any;
   @Output() GetdataEvent =new EventEmitter<String>();
   getdata() {
-    this.GetdataEvent.emit(this.value);
+    this.GetdataEvent.emit(this.defaule);
   }
 }
