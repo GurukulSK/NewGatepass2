@@ -79,6 +79,9 @@ export class SabhaComponent {
     {
       seva: 'Dharmik Store',
     },
+    {
+      seva: 'Other',
+    },
   ];
   GroupList = new SabhaEntry();
   grouplist = [this.GroupList];
@@ -155,7 +158,6 @@ export class SabhaComponent {
         });
       } else {
       if(this.grouplist.length == 0){
-
         this.animat("0px", true)
       }
       this.gidloader = false;

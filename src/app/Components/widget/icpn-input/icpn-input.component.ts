@@ -20,6 +20,6 @@ export class IcpnInputComponent {
   value:any;
   @Output() GetdataEvent =new EventEmitter<String>();
   getdata() {
-    this.GetdataEvent.emit(this.defaule);
+    this.GetdataEvent.emit(this.value);
   }
 }
