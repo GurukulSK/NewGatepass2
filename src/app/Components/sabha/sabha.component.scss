@@ -6,7 +6,18 @@
   border: 1px solid var(--border_color50);
   box-shadow: 0px 0px 2px var(--shadow_color);
   border-radius: 8px;
+  #Lottie-anime{
+    position: absolute;
+    left: 45%;
+    top: 30%;
+    width: 200px;
+    padding: 10px;
+    border:.5px solid var(--border_color50);
+    box-shadow: 0px 0px 10px var(--shadow_color);
+    border-radius: 15px;
 
+    z-index: 999;
+  }
   .container {
     border-radius: 8px;
     box-shadow: 0px 0px 2px var(--shadow_color);
@@ -116,4 +127,9 @@
   widget-button {
     width: 50%;
   }
+}
+#Forms{
+  height: 0px;
+  overflow: hidden;
+  transition: .5s all;
 }

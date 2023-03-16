@@ -11,7 +11,7 @@ export class ApiService {
 
   NodeApi = 'http://10.10.10.205:3000';
   // NodeApi = 'http://10.10.10.190:300';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
 
 
@@ -57,16 +57,15 @@ export class ApiService {
   Sendmessage(body: Object) {
     return this.http.post(this.NodeApi + '/sendTelegram', body);
   }
-  Sabha = "http://10.0.2.13:8080/api/sabha/"
-  GetStudent(gid:number){
-    return this.http.post(this.Sabha + "getdatabyid" , {gid:gid})
+  Sabha = "http://localhost:8080/api/sabha/"
+  GetStudent(gid: number) {
+    return this.http.post(this.Sabha + "getdatabyid", { gid: gid })
   }
-  SabhaStatus(gid:number){
-    return this.http.post(this.Sabha + "chekstatus" , {gid:gid})
+  SabhaStatus(gid: number) {
+    return this.http.post(this.Sabha + "chekstatus", { gid: gid })
   }
-  SabhaEntry(body:any){
-
-    return this.http.post(this.Sabha + "storedata" , body)
+  SabhaEntry(body: any) {
+    return this.http.post(this.Sabha + "storedata", body)
   }
 
 }

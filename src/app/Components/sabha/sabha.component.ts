@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnimationOptions } from 'ngx-lottie';
 import { ApiService } from '../services/api.service';
 import { NodeService } from '../services/node.service';
-export class SabhaEntry{
-  gid?:number;
-  name?:string;
-  suname?:string;
-  std?:string;
-  room?:string;
+export class SabhaEntry {
+  gid?: number;
+  name?: string;
+  suname?: string;
+  father?: string;
+  std?: string;
+  room?: string;
 }
 
 @Component({
   selector: 'app-sabha',
   templateUrl: './sabha.component.html',
   styleUrls: ['./sabha.component.scss'],
-  providers:[SabhaEntry]
+  providers: [SabhaEntry]
 })
 
 export class SabhaComponent {
@@ -82,6 +84,7 @@ export class SabhaComponent {
   grouplist = [this.GroupList];
   height: string = '0px';
   permission: string = 'Select';
+  submitAnime = false;
   authpersion = [
     { name: 'Suryakantbhai Patel' },
     { name: 'Bhaveshbhai Savani' },
@@ -99,8 +102,8 @@ export class SabhaComponent {
   }
   gidd(gid: any) {
     if (gid.length == 5) {
-      this.gid_input = "";
       this.gidloader = true;
+      this.gid_input = " ";
       for (let i = 0; i < this.grouplist.length; i++) {
         const element = this.grouplist[i];
         if (element.gid == gid) {
@@ -110,30 +113,51 @@ export class SabhaComponent {
             );
             this.gidloader = false;
             return;
+          }
         }
+        this.api.SabhaStatus(gid).subscribe((data: any) => {
+          // this.gid_input = " ";
+          if (data.message == 'ok') {
+            this.gid_input = " ";
+            this.api.GetStudent(gid).subscribe((data: any) => {
+              if(data.message){
+                this.gid_input = " ";
+                // this.gid_input = " ";
+                if(this.grouplist.length == 0){
+                
+                  this.animat("0px", true)
+                }
+                this.nodeservice.error_set("Enter valid GID","warning")
+                return
+              }
+              else{
+                this.gid_input = " ";
+                this.animat("200px", false)
+                let student = new SabhaEntry();
+                student.gid = data[0].gid;
+                student.name = data[0].name;
+                student.suname = data[0].surname;
+                student.std = data[0].std;
+                student.room = data[0].room;
+                student.father = data[0].father;
+                this.grouplist.push(student);
+              }
+            });
+            this.gidloader = false;
+          } else {
+            this.gid_input = " ";
+            this.nodeservice.error_set('you are alredy registerd', 'warning');
+            this.gidloader = false;
+            if(this.grouplist.length == 0){
+              this.animat("0px", true)
+            }
+          }
+        });
+      } else {
+      if(this.grouplist.length == 0){
+
+        this.animat("0px", true)
       }
-      this.api.SabhaStatus(gid).subscribe((data: any) => {
-        if (data.message == 'ok') {
-          this.api.GetStudent(gid).subscribe((data: any) => {
-            let student = new SabhaEntry();
-            student.gid = data[0].gid;
-            student.name = data[0].name;
-            student.suname = data[0].surname;
-            student.std = data[0].std;
-            student.room = data[0].room;
-            this.grouplist.push(student);
-            this.gid_input = "";
-          });
-          this.gid_input = "";
-          this.gidloader = false;
-        } else {
-          this.nodeservice.error_set('you are alredy registerd', 'warning');
-          this.gidloader = false;
-          this.gid_input = "";
-        }
-      });
-    } else {
-      this.gid_input = "";
       this.gidloader = false;
     }
   }
@@ -162,36 +186,70 @@ export class SabhaComponent {
   cancle() {
     this.loader_button = true
     this.router
-    .navigate(['/registration'], { skipLocationChange: true })
-    .then(() => {
-      this.router.navigateByUrl('/registration/sabha');
-      this.loader_button = false
+      .navigate(['/registration'], { skipLocationChange: true })
+      .then(() => {
+        this.router.navigateByUrl('/registration/sabha');
+        this.loader_button = false
       });
   }
   Permision_error = false;
   Seva_error = false;
+  success_lottie: AnimationOptions = {
+    path: '/assets/success_lottie.json',
+  }
   entry() {
     this.Permision_error = false;
     this.Seva_error = false;
-    if(!this.loader_button){
+    if (!this.loader_button) {
       this.loader_button = true
-      if(this.grouplist.length == 0){
-        this.nodeservice.error_set("Student List Is Empty","warning")
+      if (this.grouplist.length == 0) {
+        this.nodeservice.error_set("Student List Is Empty", "warning")
         this.loader_button = false
         return
       }
-      if(this.permission == "" || this.permission == "Select" || this.permission == undefined){
+      if (this.permission == "" || this.permission == "Select" || this.permission == undefined) {
         this.Permision_error = true
         this.loader_button = false
         return
       }
-      if(this.seva == "" || this.seva == "Select" || this.seva == undefined){
+      if (this.seva == "" || this.seva == "Select" || this.seva == undefined) {
         this.Seva_error = true
         this.loader_button = false
         return
       }
+      this.submitAnime = true;
+      var Entry = false
+      for (let i = 0; i < this.grouplist.length; i++) {
+        const student = this.grouplist[i];
+        let body = {
+          gid: student.gid,
+          name: student.name,
+          surname: student.suname,
+          father: student.father,
+          room: student.room,
+          std: student.std,
+          permit: this.permission,
+          seva: this.seva
+        }
+        this.api.SabhaEntry(body).subscribe((data) => {
+          console.log("Done");
+          Entry = true
+        },
+          err => {
+            Entry = false
+            console.log(err);
+            this.nodeservice.error_set("Error Ouccure!","error")
+            return
+          })
 
-      return
+      }
+      setInterval
+      (()=>{
+        this.submitAnime = false
+        this.loader_button = false
+        this.cancle()
+      },1000)
+        return
     }
   }
 }

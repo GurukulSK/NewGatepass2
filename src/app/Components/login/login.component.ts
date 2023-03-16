@@ -8,7 +8,7 @@ export class login {
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  providers:[
+  providers: [
     login
   ]
 })
@@ -18,7 +18,7 @@ export class LoginComponent {
   Tost = false;
   TostType = 'success';
   TostText = 'Success Full';
-  constructor(public loginInterface: login,private router:Router) {}
+  constructor(public loginInterface: login, private router: Router) { }
   toggalepass() {
     this.ShowPassword = !this.ShowPassword;
     (document.getElementById('passwordFild') as HTMLInputElement).type = this
@@ -38,21 +38,29 @@ export class LoginComponent {
       setTimeout(() => {
         this.Tost = false;
       }, 5000);
+      return
     }
     if (this.click) {
-      setTimeout(()=>{
-
-        // this.router.navigateByUrl('gatepass')
-      },500)
       if (this.loginInterface.username == undefined) {
         this.Tost = true;
         this.TostType = 'danger';
         this.TostText = 'Please Enter Username';
-        console.log('akjsdfhlkasdjf');
         setTimeout(() => {
           this.Tost = false;
         }, 5000);
+        return
       }
+      if (this.loginInterface.password == undefined) {
+        this.Tost = true;
+        this.TostType = 'danger';
+        this.TostText = 'Please Enter Password';
+        setTimeout(() => {
+          this.Tost = false;
+        }, 5000);
+        return
+      }
+      localStorage.setItem("role","admin")
+      this.router.navigateByUrl("/admin")
     }
   }
 }
