@@ -149,7 +149,7 @@ export class SabhaComponent {
             this.gidloader = false;
           } else {
             this.gid_input = " ";
-            this.nodeservice.error_set('you are alredy registerd', 'warning');
+            this.nodeservice.error_set(' You are alredy registerd', 'warning');
             this.gidloader = false;
             if(this.grouplist.length == 0){
               this.animat("0px", true)
@@ -186,9 +186,11 @@ export class SabhaComponent {
     }, 400);
   }
   cancle() {
+    console.log("This running");
+    
     this.loader_button = true
     this.router
-      .navigate(['/registration'], { skipLocationChange: true })
+      .navigate(['/admin'], { skipLocationChange: true })
       .then(() => {
         this.router.navigateByUrl('/registration/sabha');
         this.loader_button = false
@@ -245,13 +247,13 @@ export class SabhaComponent {
           })
 
       }
-      setInterval
+      setTimeout
       (()=>{
         this.submitAnime = false
         this.loader_button = false
         this.cancle()
       },1000)
-        return
+        
     }
   }
 }

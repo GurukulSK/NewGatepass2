@@ -6,11 +6,11 @@ import { Observable, timeout } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  ApiUrl = 'http://10.10.10.205:7018/api';
-  // ApiUrl = 'http://localhost:7018/api';
+  // ApiUrl = 'http://10.10.10.205:7018/api';
+  ApiUrl = 'http://localhost:7018/api';
 
-  NodeApi = 'http://10.10.10.205:3000';
-  // NodeApi = 'http://10.10.10.190:300';
+  // NodeApi = 'http://10.10.10.205:3000';
+  NodeApi = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
 
 

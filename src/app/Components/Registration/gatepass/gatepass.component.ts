@@ -334,14 +334,18 @@ export class GatepassComponent implements OnInit {
             this.api.GetStudentDetails(gid).subscribe((data: any) => {
               this.g_time = data.going_time;
               this.commited_time = data.commited_time;
+              console.log(data);
+              
               let DateReturn = this.datepipe.transform(data.date, "dd-MM-yy")
-              console.log(Date);
               let now_date = this.datepipe.transform(new Date(), "dd-MM-yy")
-              if (DateReturn! > now_date!) {
+              if (DateReturn! < now_date!) {
                 this.TooLateReturn = true
+                console.log("dffhdfhdthgdh");
+                
               }
               else{
                 this.TooLateReturn=false
+                console.log("falsse");
               }
             });
             this.height = '430px';
@@ -753,13 +757,16 @@ export class GatepassComponent implements OnInit {
   late_reasone_error = false;
   return() {
     let body = {};
-    if (this.late) {
-      if (this.late_permission == 'Select') {
-        this.nodeservice.error_set('Permission for Late is Required', 'warning');
-        this.late_select_error = true;
-        this.late_reasone_error = false;
-        return
-      }
+    if(this.loader_button==false){
+      this.loader_button=true
+
+      if (this.late) {
+        if (this.late_permission == 'Select') {
+          this.nodeservice.error_set('Permission for Late is Required', 'warning');
+          this.late_select_error = true;
+          this.late_reasone_error = false;
+          return
+        }
       else {
         if (this.late_reasone == '' || this.late_reasone == undefined) {
           this.nodeservice.error_set('Reason for Late is Required', 'warning');
@@ -823,6 +830,7 @@ export class GatepassComponent implements OnInit {
               setTimeout(() => {
                 this.submitAnime = false;
                 this.FingerAnime = false;
+                this.loader_button=false;
               }, 2000)
             });
           }
@@ -856,10 +864,13 @@ export class GatepassComponent implements OnInit {
         setTimeout(() => {
           this.submitAnime = false;
           this.FingerAnime = false;
+          this.loader_button=false;
+
         }, 2000)
       });
     }
   }
+}
   cancle(){
     this.loader_button = false
     this.Entry = '';

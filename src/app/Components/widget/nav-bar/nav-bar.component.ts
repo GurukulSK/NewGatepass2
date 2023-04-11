@@ -44,25 +44,25 @@ export class NavBarComponent {
       (document.getElementById('groupgatepass') as HTMLElement).classList.remove("active");
       (document.getElementById('sabha') as HTMLElement).classList.remove("active");
       (document.getElementById('gatepass') as HTMLElement).classList.add("active");
-      (document.getElementById('admin') as HTMLElement).classList.remove('active');
+      // (document.getElementById('admin') as HTMLElement).classList.remove('active');
     }
     if (url == "registration/Group-Gatepass") {
       (document.getElementById('sabha') as HTMLElement).classList.remove("active");
       (document.getElementById('gatepass') as HTMLElement).classList.remove('active');
       (document.getElementById('groupgatepass') as HTMLElement).classList.add('active');
-      (document.getElementById('admin') as HTMLElement).classList.remove('active');
+      // (document.getElementById('admin') as HTMLElement).classList.remove('active');
     }
     if (url == "registration/sabha") {
       (document.getElementById('gatepass') as HTMLElement).classList.remove('active');
       (document.getElementById('sabha') as HTMLElement).classList.add("active");
       (document.getElementById('groupgatepass') as HTMLElement).classList.remove('active');
-      (document.getElementById('admin') as HTMLElement).classList.remove('active');
+      // (document.getElementById('admin') as HTMLElement).classList.remove('active');
     }
     if (url == "admin") {
       (document.getElementById('gatepass') as HTMLElement).classList.remove('active');
       (document.getElementById('sabha') as HTMLElement).classList.remove("active");
       (document.getElementById('groupgatepass') as HTMLElement).classList.remove('active');
-      (document.getElementById('admin') as HTMLElement).classList.add('active');
+      // (document.getElementById('admin') as HTMLElement).classList.add('active');
     }
   }
 }
