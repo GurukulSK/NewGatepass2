@@ -290,6 +290,10 @@ export class GroupGatepassComponent implements OnDestroy {
   gidd(gid: any) {
     console.log(gid);
     if (gid.length == 5) {
+      this.api.chekBlock(gid).subscribe((data:any)=>{
+        if(data['block']==0){
+
+     
       this.gidloader = true;
       this.loader_button = false;
       let error = false;
@@ -384,6 +388,11 @@ export class GroupGatepassComponent implements OnDestroy {
           }, 200);
         }
       });
+    }
+    else{
+      this.nodeservice.error_set("You Are Blocked !! Meet ADMIN","error")
+    }
+  })
     } else {
       if (this.grouplist.length < 1) {
         this.Entry = '';
@@ -419,6 +428,8 @@ export class GroupGatepassComponent implements OnDestroy {
       this.gidloader = false
 
     }
+
+
   }
   entry() {
     if(this.grouplist.length < 1){

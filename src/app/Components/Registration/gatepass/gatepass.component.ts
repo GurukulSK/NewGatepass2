@@ -267,11 +267,14 @@ export class GatepassComponent implements OnInit {
   submitAnime = false
   TooLateReturn = false;
   gidd(gid: any) {
-    let buttons = document.getElementsByClassName('EntryButton');
-    if(buttons[0].classList.contains("active")){
+   this.api.chekBlock(gid).subscribe((data:any)=>{
+    if(data['block']==0){
+
+      let buttons = document.getElementsByClassName('EntryButton');
+      if(buttons[0].classList.contains("active")){
       this.regular = true
       console.log("Chek Regular");
-
+      
     }
     if (gid.length == 5) {
       this.gidloader = true
@@ -283,7 +286,7 @@ export class GatepassComponent implements OnInit {
         let StorageItem = localStorage.getItem(gid);
         var dataStudent = JSON.parse((StorageItem!))
         console.log(dataStudent);
-
+        
         if (this.dilogopend == false) {
           const dialogRef = this.dialog.open(OtpVeryfingBoxComponent, {
             data: {
@@ -430,6 +433,11 @@ export class GatepassComponent implements OnInit {
         this.place_list = data
       })
     }
+  }
+  else{
+    this.nodeservice.error_set("You are Blocked! Meet ADMIN","error")
+  }
+  })
   }
   withChangeSelect(value: any) {
     if (value != "Select") {

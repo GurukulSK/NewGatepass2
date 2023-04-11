@@ -68,4 +68,8 @@ export class ApiService {
     return this.http.post(this.Sabha + "storedata", body)
   }
 
+  chekBlock(gid:any){
+    return this.http.post("http://localhost:8080/chekblock",{gid:gid})
+  }
+
 }
